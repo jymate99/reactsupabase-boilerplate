@@ -1,3 +1,4 @@
+import { protectedPaths } from '@/app/lib/constant'
 import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
@@ -37,16 +38,30 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  if (
+  // if login in user visit /auth redirec them to
+  if (user) {
+     if(request.nextUrl.pathname.startsWith('/login') &&
+     !request.nextUrl.pathname.startsWith('/auth')){
+        return NextResponse.redirect(new URL("/",request.url))}
+     
+
+  // } else if  // if no login user visit th
+  //     (protectedPaths.includes( request.nextUrl.pathname)){
+  //       return NextResponse.redirect(new URL("/auth",request.url))
+  // }
+
+   // if no login in user visit path below will be directed to /auth
+  else if (
     !user &&
     !request.nextUrl.pathname.startsWith('/login') &&
     !request.nextUrl.pathname.startsWith('/auth')
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
-    url.pathname = '/login'
+    // console.log(url)
+    url.pathname = '/auth'
     return NextResponse.redirect(url)
-  }
+  }}
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:

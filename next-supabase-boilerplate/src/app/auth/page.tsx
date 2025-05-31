@@ -1,6 +1,6 @@
 'use client'
-import { Button } from "@/components/ui/button";
-import { createClient } from "@/lib/utils/supabase/client"
+import { Button } from "@/app/ui/button";
+import { createClient } from "@/utils/supabase/client"
 import { KeyRound } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
