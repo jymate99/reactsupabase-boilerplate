@@ -7,3 +7,4 @@
 # Set up a default profile image incase user dosen't have image
 # Create a Logout function, once user click the profile image it will log ou
 # Create a middleware that do page protection, only auth and login page are allow for user
+# Create a subscription page, shows 3 different product and price user can purchase
