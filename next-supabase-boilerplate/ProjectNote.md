@@ -10,3 +10,4 @@
 # Create a subscription page, shows 3 different product and price user can purchase
 # Add Stripe Library to process checkout functionality
 # set a loding state to show UI when it is loading the web page
+# Store stripe user subscription page using webhook
