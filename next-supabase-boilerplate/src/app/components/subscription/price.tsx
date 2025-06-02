@@ -1,6 +1,9 @@
-import { Button } from '@/app/ui/button';
+"use client";
+
 import { CheckCircle2 } from 'lucide-react';
 import React from 'react'
+import Checkout from './checkout';
+
 
 export default function price() {
     const prices = [
@@ -15,6 +18,7 @@ export default function price() {
 				"Enhanced collaboration",
 			],
 			amount: 10,
+			priceID:'price_1RVOhgRxiceiRntDYAP9pYlE',
 			
 		},
 		{
@@ -29,6 +33,7 @@ export default function price() {
 				"Enhanced collaboration",
 			],
 			amount: 20,
+			priceID:'price_1RVOi6RxiceiRntDy5c0W3yj',
 			
 		},
 		{
@@ -43,6 +48,7 @@ export default function price() {
 				"Enhanced collaboration",
 			],
 			amount: 100,
+			priceID:'price_1RVOiORxiceiRntDJaSQXi3k'
 			
 		},
 	];
@@ -67,7 +73,9 @@ export default function price() {
                             }
                             )}
                         </div>
-                        <Button className='w-full text-white'>Get Started</Button>
+						<Checkout priceId={price.priceID} />
+						
+                        
                     </div>
             })}
         </div>
