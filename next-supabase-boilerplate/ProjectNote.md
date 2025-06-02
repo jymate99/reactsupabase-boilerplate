@@ -8,3 +8,5 @@
 # Create a Logout function, once user click the profile image it will log ou
 # Create a middleware that do page protection, only auth and login page are allow for user
 # Create a subscription page, shows 3 different product and price user can purchase
+# Add Stripe Library to process checkout functionality
+# set a loding state to show UI when it is loading the web page
