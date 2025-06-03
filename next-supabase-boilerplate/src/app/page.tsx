@@ -1,11 +1,19 @@
+"use client"
 import { Button } from "@/app/ui/button";
 import Link from "next/link";
-import Price from "./components/subscription/price";
+import { redirect } from "next/navigation";
+import { createClient } from "@/utils/supabase/client";
 
 
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient()
+  const { data, error } = await supabase.auth.getUser()
+
+  if (error || !data?.user) { redirect('/auth')}
+  else {
   return (
+    
     <div>
     <div className="flex">
       <Button className="text-white mt-3 ml-3">Hello World!</Button>
@@ -23,5 +31,5 @@ export default function Home() {
       {/* <Price/> */}
     </div>
     </div>
-  );
+  );}
 }
