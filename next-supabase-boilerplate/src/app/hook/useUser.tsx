@@ -22,7 +22,7 @@ export default function useUser() {
             const {data} = await supabase.auth.getSession()
             if(data.session?.user){
                 //fetch user information
-                const {data:user} = await supabase.from("profile").select('*').eq("id",data.session.user.id).single();
+                const {data:user} = await supabase.from("profile").select('*,subscription(*)').eq("id",data.session.user.id).single();
                 return user
                 
             } else {InitUser}
